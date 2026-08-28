@@ -11,25 +11,23 @@ diff --git a/src/main/java/net/minecraft/launcher/ui/popups/login/LogInPopup.jav
 index 0000000..0000000 100644
 --- a/src/main/java/net/minecraft/launcher/ui/popups/login/LogInPopup.java
 +++ b/src/main/java/net/minecraft/launcher/ui/popups/login/LogInPopup.java
-@@
+@@ -1,3 +1,6 @@
 +import javax.swing.JOptionPane;
 +import java.util.UUID;
 +import com.mojang.authlib.GameProfile;
-@@
-     private final JButton microsoftLoginButton = new JButton("Microsoft Login"); // olauncher - Add MS login button
+ 
+ private final JButton microsoftLoginButton = new JButton("Microsoft Login"); // olauncher - Add MS login button
 +    private final JButton offlineLoginButton = new JButton("Offline Login"); // olauncher - Offline login
-@@
+ 
          this.microsoftLoginButton.addActionListener(this);
 +        this.offlineLoginButton.addActionListener(this);
-@@
--        var6.add(microsoftLoginButton);
-+        var6.add(microsoftLoginButton);
+ 
+         var6.add(microsoftLoginButton);
 +        // Add offline login button alongside the other login options
 +        offlineLoginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 +        var6.add(offlineLoginButton);
-@@
--        } else if (var1.getSource() == this.microsoftLoginButton) { // olauncher - handle MS login button
-+        } else if (var1.getSource() == this.microsoftLoginButton) { // olauncher - handle MS login button
+ 
+         } else if (var1.getSource() == this.microsoftLoginButton) { // olauncher - handle MS login button
              // existing MS login handling
 +        } else if (var1.getSource() == this.offlineLoginButton) { // olauncher - handle offline login
 +            // Prompt for an offline username and create a simple offline profile
@@ -49,12 +47,12 @@ index 0000000..0000000 100644
 +                }
 +            }
          }
-diff --git a/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java b/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java
-new file mode 100644
-index 0000000..1111111
---- /dev/null
-+++ b/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java
-@@
+ diff --git a/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java b/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java
+ new file mode 100644
+ index 0000000..1111111
+ --- /dev/null
+ +++ b/src/main/java/net/minecraft/launcher/ui/popups/login/OfflineLoginPopup.java
+@@ -0,0 +1,50 @@
 +package net.minecraft.launcher.ui.popups.login;
 +
 +import javax.swing.*;
@@ -107,6 +105,6 @@ index 0000000..1111111
 +        setLocationRelativeTo(owner);
 +    }
 +}
-+
--- 
-2.43.0
+ 
+ -- 
+ 2.43.0
